@@ -1,0 +1,12 @@
+# Instaladores
+*.msi
+
+# Configuración de IDE
+.idea/
+.vscode/
+
+# Compilación
+bin/
+obj/
+
+Ciberseguridad/grafana-key.json

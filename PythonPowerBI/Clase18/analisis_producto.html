@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis BI - sports smartwatch</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-slate-100 font-sans min-h-screen p-4 md:p-8 text-gray-800">
+
+    <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+
+        <div class="bg-slate-900 text-white p-8 border-b border-slate-800">
+            <h1 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">📊 Análisis Business Intelligence</h1>
+            <div class="text-slate-400 font-medium tracking-wide uppercase text-sm">sports smartwatch</div>
+            <div class="mt-4 pt-4 border-t border-slate-800 text-xs md:text-sm text-slate-400 flex flex-wrap gap-4">
+                <span>📅 <strong>Fecha:</strong> 2026-05-30 14:52:03</span>
+                <span class="hidden md:inline">|</span>
+                <span>📦 <strong>Muestra:</strong> 60 productos analizados</span>
+            </div>
+        </div>
+
+        <div class="p-6 md:p-8 space-y-8">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-5 rounded-xl border border-gray-200 text-center hover:shadow-sm transition-shadow">
+                    <div class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">💰 Precio Mínimo</div>
+                    <div class="text-2xl font-bold text-slate-900">$9.99</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-gray-200 text-center hover:shadow-sm transition-shadow">
+                    <div class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">💰 Precio Máximo</div>
+                    <div class="text-2xl font-bold text-slate-900">$299.99</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-gray-200 text-center hover:shadow-sm transition-shadow">
+                    <div class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">📊 Precio Promedio</div>
+                    <div class="text-2xl font-bold text-indigo-700">$60.49</div>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-gray-200 text-center hover:shadow-sm transition-shadow">
+                    <div class="text-xs uppercase tracking-wider text-gray-500 font-semibold mb-1">🎯 Precio Mediana</div>
+                    <div class="text-2xl font-bold text-slate-900">$46.72</div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wide border-b-2 border-slate-900 pb-2">📈 Análisis de Precios</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner">
+                        <canvas id="priceChart" class="max-h-[300px] w-full"></canvas>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 shadow-inner">
+                        <canvas id="distributionChart" class="max-h-[300px] w-full"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wide border-b-2 border-slate-900 pb-2">🏷️ Segmentación de Mercado</h2>
+                <div class="bg-white border border-gray-200 rounded-xl p-6 space-y-5 shadow-sm">
+                    <div>
+                        <div class="font-semibold text-gray-700 text-sm mb-1">💰 Económico</div>
+                        <div class="w-full bg-gray-200 h-6 rounded-full overflow-hidden mb-1 shadow-inner">
+                            <div class="bg-slate-500 h-full flex items-center justify-end pr-3 text-white text-xs font-bold" style="width: 35.0%">
+                                35.0%
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-500">21 productos | Precio promedio: $23.63</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-gray-700 text-sm mb-1">📊 Medio</div>
+                        <div class="w-full bg-gray-200 h-6 rounded-full overflow-hidden mb-1 shadow-inner">
+                            <div class="bg-slate-700 h-full flex items-center justify-end pr-3 text-white text-xs font-bold" style="width: 50.0%">
+                                50.0%
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-500">30 productos | Precio promedio: $52.72</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-gray-700 text-sm mb-1">⭐ Premium</div>
+                        <div class="w-full bg-gray-200 h-6 rounded-full overflow-hidden mb-1 shadow-inner">
+                            <div class="bg-indigo-950 h-full flex items-center justify-end pr-3 text-white text-xs font-bold" style="width: 15.0%">
+                                15.0%
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-500">9 productos | Precio promedio: $172.45</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wide border-b-2 border-slate-900 pb-2">🏆 Top 5 Mejor Valor</h2>
+                    <div class="space-y-3">
+                        
+        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-all">
+            <div class="text-xl font-bold text-slate-700 w-10 text-center">#1</div>
+            <div class="flex-1 min-w-0">
+                <div class="font-medium text-gray-900 truncate" title="CASCHO Reloj inteligente para mujer (2 bandas), reloj inteligente de llamadas Bluetooth con voz AI, reloj de fitness HD de 1.85 pulgadas, ritmo cardíaco, SpO2/pasos/monitor de sueño, más de 120 modos">CASCHO Reloj inteligente para mujer (2 bandas), reloj inteli...</div>
+                <div class="text-sm text-gray-500">⭐ 5.0 | <span class="font-semibold text-slate-800">$29.99</span></div>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-all">
+            <div class="text-xl font-bold text-slate-700 w-10 text-center">#2</div>
+            <div class="flex-1 min-w-0">
+                <div class="font-medium text-gray-900 truncate" title="Smart Watches for Men (Answer/Make Call), 1.53" HD Military Smartwatch, 50+ Days Extra-Long Battery Life Fitness Tracker, Flashlight/110+Sports/Heart Rate/Sleep Monitor/IP68 Waterproof Android iOS">Smart Watches for Men (Answer/Make Call), 1.53" HD Military ...</div>
+                <div class="text-sm text-gray-500">⭐ 4.9 | <span class="font-semibold text-slate-800">$32.99</span></div>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-all">
+            <div class="text-xl font-bold text-slate-700 w-10 text-center">#3</div>
+            <div class="flex-1 min-w-0">
+                <div class="font-medium text-gray-900 truncate" title="Military Smart Watches for Men(Answer/Make Calls), 1.53" HD Fitness Watch, Heart Rate Sleep Monitor, Smart Watch for Men,120+ Sport Modes, IP68 Waterproof Smartwatch for Android iOS, 30Day, Black">Military Smart Watches for Men(Answer/Make Calls), 1.53" HD ...</div>
+                <div class="text-sm text-gray-500">⭐ 4.9 | <span class="font-semibold text-slate-800">$35.99</span></div>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-all">
+            <div class="text-xl font-bold text-slate-700 w-10 text-center">#4</div>
+            <div class="flex-1 min-w-0">
+                <div class="font-medium text-gray-900 truncate" title="Relojes inteligentes para hombres y mujeres con GPS integrado, responder/hacer llamadas, reloj inteligente de 1.95 pulgadas para teléfonos iPhone/Android, reloj de fitness con monitor de frecuencia cardíaca/sueño, más de 100 modos deportivos, resistente al agua IP68 (negro)">Relojes inteligentes para hombres y mujeres con GPS integrad...</div>
+                <div class="text-sm text-gray-500">⭐ 4.8 | <span class="font-semibold text-slate-800">$34.99</span></div>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100 hover:bg-gray-100 transition-all">
+            <div class="text-xl font-bold text-slate-700 w-10 text-center">#5</div>
+            <div class="flex-1 min-w-0">
+                <div class="font-medium text-gray-900 truncate" title="Smart Watch for Men, 120 Sports Modes Smartwatch with 1.83" HD, Alexa Built-in, Heart Rate/Sleep Monitor, IP67 Waterproof, Bluetooth Call & Music Control Fitness Watch for iPhone/Android (Jet Black)">Smart Watch for Men, 120 Sports Modes Smartwatch with 1.83" ...</div>
+                <div class="text-sm text-gray-500">⭐ 4.6 | <span class="font-semibold text-slate-800">$19.99</span></div>
+            </div>
+        </div>
+        
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wide border-b-2 border-slate-900 pb-2">⭐ Estadísticas de Ratings</h2>
+                    <div class="bg-white border border-gray-200 rounded-xl p-5 space-y-4 shadow-sm">
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 flex items-center justify-between">
+                            <span class="font-medium text-gray-700 text-sm">Promedio de Rating</span>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-slate-900">4.33</span>
+                                <span class="text-xs text-gray-500 block">⭐ / 5.0</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 flex items-center justify-between">
+                            <span class="font-medium text-gray-700 text-sm">Rango de Ratings</span>
+                            <span class="font-semibold text-slate-800 text-sm">3.1 - 5.0 ⭐</span>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border border-gray-100 flex items-center justify-between">
+                            <span class="font-medium text-gray-700 text-sm">Productos con Rating</span>
+                            <span class="font-semibold text-slate-800 text-sm">100.0% del total</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wide border-b-2 border-slate-900 pb-2">📋 Lista de Productos</h2>
+                <div class="overflow-x-auto border border-gray-200 rounded-xl shadow-sm">
+                    <table class="w-full text-left border-collapse bg-white">
+                        <thead>
+                            <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                                <th class="p-3 font-semibold w-12">#</th>
+                                <th class="p-3 font-semibold">Producto</th>
+                                <th class="p-3 font-semibold w-28">Precio</th>
+                                <th class="p-3 font-semibold w-40">Rating</th>
+                                <th class="p-3 font-semibold w-24">Reviews</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">1</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Smart Watch for Men, 120 Sports Modes Smartwatch with 1.83" HD, Alexa Built-in, Heart Rate/Sleep Monitor, IP67 Waterproof, Bluetooth Call & Music Control Fitness Watch for iPhone/Android (Jet Black)">Smart Watch for Men, 120 Sports Modes Smartwatch with 1.83" HD, Alexa Built-in, ...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$19.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.6)</span></td>
+            <td class="p-3 text-sm text-gray-600">171</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">2</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente, 2.01 pulgadas AMOLED reloj de fitness con pantalla táctil curvada para hombres y mujeres, IP68 impermeable, monitor de frecuencia cardíaca 24/7/sueño, rastreador de actividad física">Reloj inteligente, 2.01 pulgadas AMOLED reloj de fitness con pantalla táctil cur...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$29.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.1)</span></td>
+            <td class="p-3 text-sm text-gray-600">215</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">3</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente Parsonver para hombres y mujeres (responder/hacer llamadas), pantalla HD, rastreador de fitness IP68 resistente al agua con más de 100 modos deportivos, monitor de ritmo cardíaco y">Reloj inteligente Parsonver para hombres y mujeres (responder/hacer llamadas), p...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$31.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.2)</span></td>
+            <td class="p-3 text-sm text-gray-600">6410</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">4</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Smart Watches for Men (Answer/Make Call), 1.53" HD Military Smartwatch, 50+ Days Extra-Long Battery Life Fitness Tracker, Flashlight/110+Sports/Heart Rate/Sleep Monitor/IP68 Waterproof Android iOS">Smart Watches for Men (Answer/Make Call), 1.53" HD Military Smartwatch, 50+ Days...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$32.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.9)</span></td>
+            <td class="p-3 text-sm text-gray-600">70</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">5</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Smart Watch for Men, 120+ Sports Modes Smartwatch with 1.83" HD Touchsreen, Sleep Monitor, IP67 Waterproof, Bluetooth Call & Music Control Fitness Watch for iPhone/Android (Light Black)">Smart Watch for Men, 120+ Sports Modes Smartwatch with 1.83" HD Touchsreen, Slee...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$19.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.6)</span></td>
+            <td class="p-3 text-sm text-gray-600">11</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">6</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Military Smart Watches for Men(Answer/Make Calls), 1.53" HD Fitness Watch, Heart Rate Sleep Monitor, Smart Watch for Men,120+ Sport Modes, IP68 Waterproof Smartwatch for Android iOS, 30Day, Black">Military Smart Watches for Men(Answer/Make Calls), 1.53" HD Fitness Watch, Heart...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$35.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.9)</span></td>
+            <td class="p-3 text-sm text-gray-600">57</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">7</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente con Alexa integrado, pantalla táctil HD de 1.83 pulgadas, rastreador de actividad física con llamadas Bluetooth, reloj de fitness con monitor de frecuencia cardíaca/sueño, más de 120 modos deportivos, reloj inteligente impermeable IP68 para Android iOS">Reloj inteligente con Alexa integrado, pantalla táctil HD de 1.83 pulgadas, rast...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$29.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.3)</span></td>
+            <td class="p-3 text-sm text-gray-600">1127</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">8</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente para mujeres, pantalla HD de 1.85" compatible con iPhone/Samsung/Android (responder/hacer llamadas), rastreador de fitness con más de 100 modos deportivos con monitor de frecuencia">Reloj inteligente para mujeres, pantalla HD de 1.85" compatible con iPhone/Samsu...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$49.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.4)</span></td>
+            <td class="p-3 text-sm text-gray-600">2461</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">9</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Fitpolo Reloj inteligente, rastreador de fitness AMOLED de 1.85 pulgadas con llamada Bluetooth, monitor de frecuencia cardíaca/sueño/SPO₂, más de 100 modos deportivos, reloj inteligente impermeable">Fitpolo Reloj inteligente, rastreador de fitness AMOLED de 1.85 pulgadas con lla...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$49.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.5)</span></td>
+            <td class="p-3 text-sm text-gray-600">322</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">10</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente para mujeres y hombres, reloj inteligente para iPhone y Android Bluetooth (respuesta/llamada) Alexa integrado, rastreador de fitness HD de 1.91 pulgadas con más de 105 modos deportivos, impermeable IP68, monitor de sueño/frecuencia cardíaca/SpO2/estrés">Reloj inteligente para mujeres y hombres, reloj inteligente para iPhone y Androi...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$49.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.3)</span></td>
+            <td class="p-3 text-sm text-gray-600">3048</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">11</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Relojes inteligentes militares con GPS integrado, más de 170 modos deportivos para hombres con linterna, reloj inteligente para teléfonos Android y iPhone, pantalla AMOLED de 1.43 pulgadas, altímetro">Relojes inteligentes militares con GPS integrado, más de 170 modos deportivos pa...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$62.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.2)</span></td>
+            <td class="p-3 text-sm text-gray-600">867</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">12</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Smart Watch for Men Women, 1.8" Fitness Tracker for Android & iPhone, Answer/Make Calls, Alexa Built-in, Heart Rate/Sleep/SpO2 Monitor Smartwatch, IP68 Waterproof Watches 101+ Sport Modes, 2 Bands">Smart Watch for Men Women, 1.8" Fitness Tracker for Android & iPhone, Answer/Mak...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$47.98</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.2)</span></td>
+            <td class="p-3 text-sm text-gray-600">1530</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">13</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Garmin Instinct® E 1.772 in, reloj inteligente GPS resistente para exteriores, monitoreo de salud 24/7, frecuencia cardíaca basada en la muñeca, hasta 16 días de duración de la batería, carbón">Garmin Instinct® E 1.772 in, reloj inteligente GPS resistente para exteriores, m...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$199.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.5)</span></td>
+            <td class="p-3 text-sm text-gray-600">417</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">14</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Relojes inteligentes para hombre (luz láser y batería de 100 días), reloj de fitness de 1.95 pulgadas: reloj inteligente militar impermeable con llamada/sueño/spO2/monitor de frecuencia cardíaca/rastreador de pasos, reloj inteligente deportivo para Android iPhone">Relojes inteligentes para hombre (luz láser y batería de 100 días), reloj de fit...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$21.88</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.2)</span></td>
+            <td class="p-3 text-sm text-gray-600">206</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">15</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente para mujeres y hombres, reloj inteligente para iPhone y Android Bluetooth (respuesta/llamada) Alexa integrado, rastreador de fitness HD de 1.91 pulgadas con más de 105 modos deportivos, impermeable IP68, monitor de sueño/frecuencia cardíaca/SpO2/estrés">Reloj inteligente para mujeres y hombres, reloj inteligente para iPhone y Androi...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$49.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.3)</span></td>
+            <td class="p-3 text-sm text-gray-600">3048</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">16</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente para hombres y mujeres (respuesta/hacer llamadas), pantalla táctil HD de 1.83 pulgadas, rastreador de actividad física, más de 110 modos deportivos, reloj de fitness con monitor de">Reloj inteligente para hombres y mujeres (respuesta/hacer llamadas), pantalla tá...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$12.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.1)</span></td>
+            <td class="p-3 text-sm text-gray-600">1335</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">17</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Amazfit Reloj inteligente Active Max con pantalla AMOLED de 1.5 pulgadas, batería de 25 días, mapas sin conexión, GPS, almacenamiento de 4 GB, más de 170 modos deportivos, resistente al agua de 5 ATM, frecuencia cardíaca y rastreador de actividad física para Android y iPhone">Amazfit Reloj inteligente Active Max con pantalla AMOLED de 1.5 pulgadas, baterí...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$169.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.7)</span></td>
+            <td class="p-3 text-sm text-gray-600">460</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">18</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="IOWODO Reloj inteligente militar para hombre, batería de 100 días de duración, rastreador de actividad física con linterna LED / brújula, monitor de frecuencia cardíaca, más de 120 modos deportivos, IP68 resistente al agua, reloj inteligente de llamadas Bluetooth para iOSAndroid">IOWODO Reloj inteligente militar para hombre, batería de 100 días de duración, r...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$37.98</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.3)</span></td>
+            <td class="p-3 text-sm text-gray-600">520</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">19</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente para hombre con pantalla táctil HD de 1.90 pulgadas, llamada Bluetooth, rastreador de actividad física con más de 120 modos deportivos, monitor de frecuencia cardíaca y sueño">Reloj inteligente para hombre con pantalla táctil HD de 1.90 pulgadas, llamada B...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$19.99</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.2)</span></td>
+            <td class="p-3 text-sm text-gray-600">1929</td>
+        </tr>
+        
+        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+            <td class="p-3 text-sm text-gray-600">20</td>
+            <td class="p-3 text-sm text-gray-800 max-w-xs truncate" title="Reloj inteligente para mujer, responder/hacer llamadas, pantalla ultra clara AMOLED de 1.32 pulgadas con monitor de frecuencia cardíaca, sueño/SpO2, reloj inteligente para iPhone/Samsung/Android, más de 110 modos deportivos, resistente al agua 3ATM">Reloj inteligente para mujer, responder/hacer llamadas, pantalla ultra clara AMO...</td>
+            <td class="p-3 text-sm font-semibold text-slate-900">$64.98</td>
+            <td class="p-3 text-sm text-amber-500">⭐⭐⭐⭐ <span class="text-gray-500 text-xs">(4.4)</span></td>
+            <td class="p-3 text-sm text-gray-600">3919</td>
+        </tr>
+        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bg-gray-50 border-t border-gray-200 p-4 text-center text-xs text-gray-500 font-medium">
+            <p>📊 Informe generado automáticamente • Datos obtenidos de Amazon • Análisis BI</p>
+        </div>
+    </div>
+
+    <script>
+        // Gráfico de precios (Paleta Corporativa)
+        const ctx1 = document.getElementById('priceChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Smart Watch for Men, 120 Sports Modes Sm...', 'Reloj inteligente, 2.01 pulgadas AMOLED ...', 'Reloj inteligente Parsonver para hombres...', 'Smart Watches for Men (Answer/Make Call)...', 'Smart Watch for Men, 120+ Sports Modes S...', 'Military Smart Watches for Men(Answer/Ma...', 'Reloj inteligente con Alexa integrado, p...', 'Reloj inteligente para mujeres, pantalla...', 'Fitpolo Reloj inteligente, rastreador de...', 'Reloj inteligente para mujeres y hombres...'],
+                datasets: [{
+                    label: 'Precio (USD)',
+                    data: [19.99, 29.99, 31.99, 32.99, 19.99, 35.99, 29.99, 49.99, 49.99, 49.99],
+                    borderColor: '#4338ca', // indigo-700
+                    backgroundColor: 'rgba(67, 56, 202, 0.05)', 
+                    tension: 0.2,
+                    fill: true,
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: {
+                        display: true,
+                        text: 'Top 10 Productos - Precios',
+                        font: { weight: 'bold', size: 13 }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de distribución de segmentos (Gris, Pizarra e Índigo)
+        const ctx2 = document.getElementById('distributionChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Económico', 'Medio', 'Premium'],
+                datasets: [{
+                    data: [35.0, 50.0, 15.0],
+                    backgroundColor: ['#64748b', '#334155', '#1e1b4b'], // slate-500, slate-700, indigo-950
+                    borderWidth: 1,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: {
+                        display: true,
+                        text: 'Distribución por Segmento',
+                        font: { weight: 'bold', size: 13 }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

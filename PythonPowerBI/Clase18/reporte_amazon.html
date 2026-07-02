@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<title>Dashboard BI</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body {
+font-family: Arial;
+background:#f4f6f9;
+margin:20px;
+}
+
+.card {
+background:white;
+padding:15px;
+margin:10px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+table {
+width:100%;
+border-collapse:collapse;
+}
+
+th,td {
+padding:10px;
+border:1px solid #ddd;
+}
+
+th {
+background:#0033A0;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Dashboard BI - laptops</h1>
+
+<div class="card">
+<h2>KPIs</h2>
+
+<p>Precio mínimo: $43.99</p>
+<p>Precio máximo: $2707.99</p>
+<p>Precio promedio: $843.95</p>
+<p>Mediana: $477.0</p>
+<p>Desviación: 818.62</p>
+<p>Rating promedio: 4.33</p>
+
+</div>
+
+<div class="card">
+
+<canvas id="priceChart"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Productos</h2>
+
+<table>
+
+<tr>
+<th>Producto</th>
+<th>Precio</th>
+<th>Rating</th>
+<th>Segmento</th>
+</tr>
+
+
+<tr>
+<td>Acer Nitro V 16S AI portátil para juegos | Procesador AMD Ryzen 7 260 | GPU para portátiles NVIDIA GeForce RTX 5060 (572 AI Tops) | pantalla IPS WUXGA 180Hz de 16" | DDR5 32GB | SSD Gen 4 1TB | Wi-Fi</td>
+<td>1309.99</td>
+<td>4.3</td>
+<td>Premium</td>
+</tr>
+
+<tr>
+<td>ASUS ROG Flow Z13 (2025) Portátil para juegos, 13" ROG Nebula 16:10 2.5K 180Hz/3ms, AMD Ryzen AI MAX+ 395, RDNA 3.5 Graphics, 128GB LPDDR5X 8000MHz, 1TB PCIe Gen 4 SSD, Wi-Fi 7, Win 11 Pro, GZ302EB A-XS99</td>
+<td>2707.99</td>
+<td>4.3</td>
+<td>Premium</td>
+</tr>
+
+<tr>
+<td>ASUS ROG Strix G16 (2025) portátil para juegos, pantalla FHD+ de 16” 16:10 165Hz/3ms, unidad de procesamiento de gráficos GeForce RTX™ 5060, procesador Intel® Core™ i7 14650HX, 16 GB DDR5, SSD Gen 4</td>
+<td>1339.99</td>
+<td>4.5</td>
+<td>Premium</td>
+</tr>
+
+<tr>
+<td>Apple Laptop MacBook Air 2026 de 13 pulgadas con chip M5: diseñada para AI, pantalla de retina líquida de 13.6 pulgadas, memoria unificada de 16 GB, SSD de 512 GB, cámara central de 12 MP, Touch ID, Wi-Fi 7; Medianoche</td>
+<td>None</td>
+<td>4.8</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Dell 16 portátiles DC16251-16.0 pulgadas, pantalla táctil 2K 16:10, procesador Intel Core 7 150U, 16 GB DDR5 RAM, 1 TB SSD, gráficos Intel, Windows 11 Home, servicio básico in situ de 1 año, azul nube</td>
+<td>None</td>
+<td>4.6</td>
+<td></td>
+</tr>
+
+<tr>
+<td>HP Laptop FHD de 15.6 pulgadas edición 2026 con IA Copilot, 16 GB de RAM, SSD de 256 GB, procesador Intel, batería de larga duración, ligera 3.64 libras, Microsoft 365, Windows 11 para estudiantes y oficina</td>
+<td>None</td>
+<td>4.2</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Samsung PC Galaxy Book5 Pro 360 Copilot+ de 16 pulgadas, portátil empresarial AI, Windows 11 Pro, procesador Intel Core Ultra 7 258V, pantalla táctil AMOLED 3K, 32 GB / 1 TB, 120 HZ, modelo 2025</td>
+<td>1915.58</td>
+<td>4.2</td>
+<td>Premium</td>
+</tr>
+
+<tr>
+<td>HP Portátil de 15,6 pulgadas, pantalla táctil HD, AMD Ryzen 3 7320U, 8 GB de RAM, SSD de 128 GB, gráficos AMD Radeon, Windows 11 Home en modo S, plata natural, 15- fc0099nr</td>
+<td>399.0</td>
+<td>4.5</td>
+<td>Económico</td>
+</tr>
+
+<tr>
+<td>Laptop Dell 15 DC15250 - pantalla FHD de 15.6 pulgadas 120Hz, procesador Intel Core 3 100U, 8 GB DDR4 RAM, SSD de 512 GB, gráficos Intel UHD, Windows 11 Home, servicio in situ - negro carbón</td>
+<td>None</td>
+<td>4.3</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Samsung Computadora portátil Galaxy Chromebook Go de 14 pulgadas, procesador Intel Celeron N4500, 4 GB de RAM, 64 GB de almacenamiento, ChromeOS, XE340XDA-KA2US, portátil para estudiantes, color</td>
+<td>190.99</td>
+<td>4.4</td>
+<td>Económico</td>
+</tr>
+
+<tr>
+<td>Acer - Laptop Nitro V para juegos, procesador Intel Core i5-13420H, GPU NVIDIA GeForce RTX 4050, FHD IPS, 15.6 pulgadas, 165 Hz, 8 GB DDR5, SSD 512 GB Gen 4, Wi-Fi 6, KB retroiluminado, ANV15-52-586Z</td>
+<td>793.97</td>
+<td>4.5</td>
+<td>Medio</td>
+</tr>
+
+<tr>
+<td>NIMO 15.6 IPS-FHD-Laptop, 16GB RAM 1TB SSD Intel Pentium Quad Core N100, teclado retroiluminado huella digital (Beat a i3-1115G4 hasta 3.4GHz) Computadora para estudiante-hogar WiFi 6 BT5.2 Win 11</td>
+<td>359.99</td>
+<td>4.3</td>
+<td>Económico</td>
+</tr>
+
+<tr>
+<td>NIMO Portátil ligero para juegos de 15.6", 8 núcleos AMD Ryzen 7 Pro 6850U 32GB RAM 1TB SSD (Beat i7-1360P hasta 4.7GHz) Radeon 680M 100W Fast PD FHD Teclado retroiluminado para creadores de contenido</td>
+<td>None</td>
+<td>4.6</td>
+<td></td>
+</tr>
+
+<tr>
+<td>HP Portátil de 17 pulgadas, pantalla FHD IPS de 17.3 pulgadas, AMD Ryzen 5 7430U (hasta 4.5 GHz), 20 GB de RAM, SSD de 512 GB, Wi-Fi 6, Bluetooth 5.4, Windows 11 Pro, llave AI Copilot, teclado</td>
+<td>None</td>
+<td>3.4</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Lenovo Business Laptop with Copilot AI • 2026 Edition • Intel 13th Gen i5-13420H • 24GB DDR5 • 1TB SSD • 16" FHD+ • Microsoft 365 • WiFi 6 • Windows 11</td>
+<td>None</td>
+<td>4.6</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Lenovo IdeaPad Slim 3X - 2025 - Laptop AI para Todos los Días - PC Copilot+ - Pantalla WUXGA de 15.3" - 16 GB de Memoria - 512 GB de Almacenamiento - Qualcomm® Snapdragon® X - Gris Luna</td>
+<td>554.99</td>
+<td>4.5</td>
+<td>Medio</td>
+</tr>
+
+<tr>
+<td>BLUEING Portátil de 15,6 pulgadas, computadora portátil N5095 procesador (4C/4T, hasta 2,9 GHz), 16 GB de RAM 1 TB SSD (hasta 2 TB), retroiluminación, huella digital, tipo C, HDMI, USB3.2, BT5, WiFi 5, Win 11, Office Suite, Laptops</td>
+<td>318.89</td>
+<td>3.5</td>
+<td>Económico</td>
+</tr>
+
+<tr>
+<td>Lenovo Laptop premium de 16" para multitarea empresarial Power • Edición 2026 • Intel Core i7-13620H (Beat Core 7 150U) • DDR5 de 24 GB • SSD de 1 TB • Windows 11</td>
+<td>None</td>
+<td>4.8</td>
+<td></td>
+</tr>
+
+<tr>
+<td>HP 17 Laptop, pantalla táctil HD+ de 17.3", procesador Intel Core i7-1255U, 32GB RAM, 1TB SSD, cámara web, HDMI, teclado retroiluminado, Wi-Fi, Windows 11 Home, plateado</td>
+<td>None</td>
+<td>4.2</td>
+<td></td>
+</tr>
+
+<tr>
+<td>HP Laptop Stream HD de 14 pulgadas, procesador Intel Celeron, memoria de 4 GB, almacenamiento eMMC de 64 GB, carga rápida, HDMI, batería de hasta 11 horas de duración, Office 365 1 año, Win 11 S</td>
+<td>192.0</td>
+<td>4.2</td>
+<td>Económico</td>
+</tr>
+
+<tr>
+<td>HP Laptop de 14 pulgadas para negocios y estudiantes, SSD de 256 GB, Microsoft Office 365 incluido, Windows 11, llave Copilot, AMD Athlon 7120U, estación de acoplamiento SageNova, azul claro lunar</td>
+<td>None</td>
+<td>4.2</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Estación de acoplamiento para portátil 3 monitores, Hub USB C con 2 HDMI 2DP, RJ45 Ethernet, 5 Gbps USB C/A, 100W PD SD/microSD para Dell/HP/Lenovo - MOKiN</td>
+<td>43.99</td>
+<td>4.4</td>
+<td>Económico</td>
+</tr>
+
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h2>Top 5 Mejor Valor</h2>
+
+<ul>
+
+
+<li>
+<strong>HP Portátil de 15,6 pulgadas, pantalla táctil HD, AMD Ryzen 3 7320U, 8 GB de RAM, SSD de 128 GB, gráficos AMD Radeon, Windows 11 Home en modo S, plata natural, 15- fc0099nr</strong><br>
+Precio: $399.0 |
+Rating: 4.5
+</li>
+
+<li>
+<strong>Samsung Computadora portátil Galaxy Chromebook Go de 14 pulgadas, procesador Intel Celeron N4500, 4 GB de RAM, 64 GB de almacenamiento, ChromeOS, XE340XDA-KA2US, portátil para estudiantes, color</strong><br>
+Precio: $190.99 |
+Rating: 4.4
+</li>
+
+<li>
+<strong>Estación de acoplamiento para portátil 3 monitores, Hub USB C con 2 HDMI 2DP, RJ45 Ethernet, 5 Gbps USB C/A, 100W PD SD/microSD para Dell/HP/Lenovo - MOKiN</strong><br>
+Precio: $43.99 |
+Rating: 4.4
+</li>
+
+<li>
+<strong>NIMO 15.6 IPS-FHD-Laptop, 16GB RAM 1TB SSD Intel Pentium Quad Core N100, teclado retroiluminado huella digital (Beat a i3-1115G4 hasta 3.4GHz) Computadora para estudiante-hogar WiFi 6 BT5.2 Win 11</strong><br>
+Precio: $359.99 |
+Rating: 4.3
+</li>
+
+<li>
+<strong>HP Laptop Stream HD de 14 pulgadas, procesador Intel Celeron, memoria de 4 GB, almacenamiento eMMC de 64 GB, carga rápida, HDMI, batería de hasta 11 horas de duración, Office 365 1 año, Win 11 S</strong><br>
+Precio: $192.0 |
+Rating: 4.2
+</li>
+
+
+</ul>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('priceChart');
+
+new Chart(ctx, {
+
+type:'line',
+
+data: {
+
+labels: ['Acer Nitro V 16S AI portátil para juegos', 'ASUS ROG Flow Z13 (2025) Portátil para j', 'ASUS ROG Strix G16 (2025) portátil para ', 'Apple Laptop MacBook Air 2026 de 13 pulg', 'Dell 16 portátiles DC16251-16.0 pulgadas', 'HP Laptop FHD de 15.6 pulgadas edición 2', 'Samsung PC Galaxy Book5 Pro 360 Copilot+', 'HP Portátil de 15,6 pulgadas, pantalla t', 'Laptop Dell 15 DC15250 - pantalla FHD de', 'Samsung Computadora portátil Galaxy Chro'],
+
+datasets:[{
+
+label:'Precio USD',
+
+data:[1309.99, 2707.99, 1339.99, 0, 0, 0, 1915.58, 399.0, 0, 190.99],
+
+borderColor:'#0033A0',
+
+fill:false
+
+}]
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

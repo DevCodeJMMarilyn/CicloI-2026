@@ -1,0 +1,47 @@
+PROGRAMA BÁSICO PARA CAPTURAR Y LISTAR DATOS Sistema: Kali Linux
+Lenguaje: Python 3
+
+Descripción: Este programa captura nombre y edad de personas, clasifica
+según rango de edad y luego muestra la lista.
+
+Criterios de clasificación: 0 a 12 años -> bichito 13 a 18 años ->
+cipote 19 a 30 años -> pollon 31 a 45 años -> maitro 46 a 60 años ->
+macizo 65 en adelante -> maitrito
+
+  ---------------------
+  CÓDIGO DEL PROGRAMA
+  ---------------------
+
+personas = []
+
+def clasificar_edad(edad): if 0 <= edad <= 12: return “bichito” elif 13
+<= edad <= 18: return “cipote” elif 19 <= edad <= 30: return “pollon”
+elif 31 <= edad <= 45: return “maitro” elif 46 <= edad <= 60: return
+“macizo” elif edad >= 65: return “maitrito” else: return “edad fuera de
+rango”
+
+while True: nombre = input(“Ingrese el nombre (o escriba salir para
+terminar):”) if nombre.lower() == “salir”: break
+
+    edad = int(input("Ingrese la edad: "))
+
+    categoria = clasificar_edad(edad)
+
+    personas.append({
+        "nombre": nombre,
+        "edad": edad,
+        "categoria": categoria
+    })
+
+print(“de Personas:”) print(“———————————-”)
+
+for persona in personas: print(f”Nombre: {persona[‘nombre’]} - Edad:
+{persona[‘edad’]} - Categoria: {persona[‘categoria’]}“)
+
+  -------------------------------------------
+  INSTRUCCIONES PARA EJECUTAR EN KALI LINUX
+  -------------------------------------------
+
+1.  Guardar este código en un archivo llamado programa_personas.py
+2.  Abrir la terminal.
+3.  Ejecutar: python3 programa_personas.py
